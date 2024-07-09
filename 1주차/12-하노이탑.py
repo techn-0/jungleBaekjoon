@@ -5,8 +5,8 @@ def hanoi(n, a, b, c):
         hanoi(n-1, a, c, b)
         print(a, c)
         hanoi(n-1, b, a, c)
-N = int(input())
-sum = 2 ** N -1
+n = int(input())
+sum = 2**n - 1
 print(sum)
-if N <=20:
-    hanoi(N, 1, 2, 3)
+if n <=20:
+    hanoi(n, 1, 2, 3)
