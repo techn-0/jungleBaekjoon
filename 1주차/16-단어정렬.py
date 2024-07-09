@@ -1,12 +1,12 @@
-n = int(input())
+N = int(input())
+arr = []
+for i in range(N):
+    arr.append(str(input()))
+arr = list(set(arr))
 
-words = [str(input()) for i in range(n)]
-
-words = sorted(set(words))
-for i in range(1, len(words)):
-    for j in range(1, 0, -1):
-        if words[j] < words[j - 1]:
-            words[j], words[j - 1] = words[j - 1], words[j]
-
-for i in words:
-    print(i)
+for i in range(1, N):
+    for j in range(i, 0, -1):
+        if len(arr[j]) < len(arr[j - 1]):
+            arr[j], arr[j - 1] = arr[j -1], arr[j]
+for i in range(N):
+    print (arr[i])
