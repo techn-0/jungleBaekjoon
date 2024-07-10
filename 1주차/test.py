@@ -1,37 +1,32 @@
 T = int(input())
 
-list=[]
+source = [[None]*T]*T
 for i in range(T):
-    list.append(int(input()))
+    source[i] = input().split()
 
-def mergeSort(list):
-    if len(list) <=1:
-        return list
-    
-    m=len(list)//2
-    left = list[:m]
-    right = list[m:]
+count = 0
+def checkColor(x, y, n):
+    global count
+    flag = source[x][y]
+    for i in range(x, x + n):
+        for j in range(y, y + n):
+            if source[i][j] != flag:
+                num = divide(y, n)
+                checkColor(x, y, n // 2)
+                checkColor(x, y + n // 2, n // 2)
+                checkColor(x + n // 2, y, n // 2)
+                checkColor(x + n // 2, y + n // 2, n // 2)
+                return
+    count += 1
 
-    return merge(mergeSort(left), mergeSort(right))
+def divide(y, n): # n: T
+    ll, rr = y, y + n - 1
+    mid = (ll + rr) // 2
 
-def merge(left, right):
-    sList=[]
-    left_index = 0
-    right_index = 0
+    lr = mid
+    rl = mid + 1
 
-    while left_index < len(left) and right_index < len(right):
-        if left[left_index] < right[right_index]:
-            sList.append(left[left_index])
-            left_index += 1
-        else:
-            sList.append(right[right_index])
-            right_index += 1
+    return [ll, lr, rl, rr]
 
-    sList.extend(left[left_index:])
-    sList.extend(right[right_index:])
-
-    return sList
-
-result = mergeSort(list)
-for x in result:
-    print(x)
+checkColor(0, 0, T)
+print(count)

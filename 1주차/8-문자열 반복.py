@@ -1,6 +1,6 @@
-R = int(input())
-for i in range(R):
+n = int(input())
+for i in range(n):
     P, S = input().split()
-    for i in range(len(S)):
-        print(S[i] * int(P), end='')
+    for i in S:
+        print(i * int(P), end='')
     print()

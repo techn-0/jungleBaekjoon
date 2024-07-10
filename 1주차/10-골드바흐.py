@@ -5,7 +5,6 @@ def check(n):
         if int(n) % j == 0:
             return False
     return True
-
 T = int(input())
 for i in range(T):
     num = int(input())
