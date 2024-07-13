@@ -1,6 +1,5 @@
 import sys
 import heapq as hq
-
 n = int(input())
 heap = []
 for i in range(n):

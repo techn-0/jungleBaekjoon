@@ -1,9 +1,26 @@
 N = int(input())
-arr1 = []
-arr2 = []
-for i in range(N):
-    arr1 = list(map(int, input().split()))
+A = list(map(int, input().split()))
+
 M = int(input())
-for i in range(M):
-    arr2 = list(map(int, input().split()))
-arr1.sort
+B = list(map(int, input().split()))
+A.sort()
+
+for num in B:
+    lt = 0
+    rt = N-1
+    ch = 0
+
+    while lt <= rt:
+        mid = (lt+rt)//2
+        if num == A[mid]:
+            print(1)
+            ch = 1
+            break
+
+        elif num > A[mid]:
+            lt = mid + 1
+
+        else:
+            rt = mid -1
+    if ch == 0:
+        print(0)
