@@ -1,44 +1,22 @@
-import sys
+n, k = map(int, input().split())
 
-v, e = map(int, input().split())
-# 부모 테이블 초기화
-parent = [0] * (v+1)
-for i in range(1, v+1):
-    parent[i] = i
+thing = [[0,0]]
+d = [[0]*(k+1) for _ in range(n+1)]
 
-# find 연산
-def find_parent(parent, x):
-    if parent[x] != x:
-        parent[x] = find_parent(parent, parent[x])
-    return parent[x]
+# 물건 리스트
+for i in range(n):
+    thing.append(list(map(int, input().split())))
 
-# union 연산
-def union_parent(parent, a, b):
-    a = find_parent(parent, a)
-    b = find_parent(parent, b)
-    if a < b:
-        parent[b] = a
-    else:
-        parent[a] = b
+for i in range(1, n+1):
+    for j in range(1, k+1):
+        w = thing[i][0]
+        v = thing[i][1]
 
-# 간선 정보 담을 리스트와 최소 신장 트리 계산 변수 정의
-edges = []
-total_cost = 0
+        if j < w:   # 물건무계가 더 커서 안들어간다면
+            d[i][j] = d[i-1][j]
+        else:
+            d[i][j] = max(d[i-1][j], d[i-1][j-w]+v)
+            # 현재 넣을 물건의 크기만큼 빼고 현재 물건을 넣는이유
+            # 이미 물건을 넣은 상태에서 새 물건이 들어갈 공간이 확보되는지 확인하기 위함
 
-# 간선 정보 주어지고 비용을 기준으로 정렬
-for _ in range(e):
-    a, b, cost = map(int, input().split())
-    edges.append((cost, a, b))
-
-# 간선 정보 비용 기준으로 오름차순 정렬
-edges.sort()
-
-# 간선 정보 하나씩 확인하면서 크루스칼 알고리즘 수행
-for i in range(e):
-    cost, a, b = edges[i]
-    # find 연산 후, 부모노드 다르면 사이클 발생 X으므로 union 연산 수행 -> 최소 신장 트리에 포함!
-    if find_parent(parent, a) != find_parent(parent, b):
-        union_parent(parent, a, b)
-        total_cost += cost
-
-print(total_cost)
+print(d[n][k])
