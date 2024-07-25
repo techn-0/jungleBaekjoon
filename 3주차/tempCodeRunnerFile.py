@@ -1,15 +1,28 @@
+import sys
+sys.setrecursionlimit(10**6)
+input = sys.stdin.readline
+
 N = int(input())
-str = [0] * 301
-arr = [0] * 301
+gamebord = []
+for _ in range(N):
+    gamebord.append(list(map(int, input().split())))
 
-for i in range(N):
-    str[i] = int(input())
+mov = [(1,0),(0,1)]
+dp = [[-1] * N for _ in range(N)]
 
-arr[0] = str[0]
-arr[1] = str[0] + str[1]
-arr[2] = max(str[0] + str[2], str[1] + str[2])
 
-for i in range(3, N):
-    arr[i] = max(arr[i - 3] + str[i - 1] + str[i], arr[i - 2] + str[i])
+def DFS(x, y):
+    if x == N-1 and y == N-1:
+        return 1
+    if dp[x][y] != -1:
+        return dp[x][y]
+    else:
+        dp[x][y] = 0
+        for i in mov:
+            nx = x + i[0] * gamebord[x][y]
+            ny = y + i[1] * gamebord[x][y]
+            if 0 <= nx < N and 0 <= ny < N:
+                dp[x][y] += DFS(nx,ny)
+    return dp[x][y]
 
-print(arr[N-1])
+print(DFS(0,0))
