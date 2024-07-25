@@ -4,10 +4,8 @@ M = N.split('-')
 ans = 0
 
 x = sum(map(int, (M[0].split('+'))))
-if N[0] == '-':
-    ans -= x
-else:
-    ans += x
+
+ans += x
 
 for x in M[1:]:
     x = sum(map(int, (x.split('+'))))

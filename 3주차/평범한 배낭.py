@@ -11,7 +11,6 @@ for i in range(1, N + 1):
     for j in range(1, K + 1):
         w = zim[i][0]
         v = zim[i][1]
-
         # 물건무계가 더 커서 안들어가면 이전물건 넣었을때 최고값
         if j < w:
             bag[i][j] = bag[i - 1][j]

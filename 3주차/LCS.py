@@ -8,7 +8,6 @@ for i in range(1, len(s1) + 1):
         else:
             arr[i][j] = max(arr[i - 1][j], arr[i][j - 1])
 print(max(map(max, arr)))
-
 # 직전 비교치가 아니라 이전 열에서 구했던 가장 긴 문자열 중에서
 # 갈수있는 경우의수가 뻗어 나가면서 가장 길이가 긴거 하나를 구해야함
 # 따라서 대각선 위에값에 +1

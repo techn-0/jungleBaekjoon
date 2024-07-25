@@ -25,7 +25,7 @@ for term in range(1, N):
         
         for t in range(start, start+term):
             dp[start][start+term] = min(dp[start][start+term],
-                                        dp[start][t]+dp[t+1][start+term] + arr[start][0]
-                                        * arr[t][1] * arr[start+term][1])
+                                        dp[start][t]+dp[t+1][start+term] + 
+                                        arr[start][0] * arr[t][1] * arr[start+term][1])
 
 print(dp[0][N-1])
