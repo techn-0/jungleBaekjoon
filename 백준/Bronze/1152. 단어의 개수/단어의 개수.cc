@@ -12,9 +12,7 @@ int main()
     for (int i = 1; i < N; i++)
     {
         if (txt[i - 1] == ' ' && txt[i] != ' ')
-        {
             cnt++;
-        }
     }
     printf("%d\n", cnt);
 }
