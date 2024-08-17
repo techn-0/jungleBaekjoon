@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(void)
 {
-  int n, q1 = 0, x[1000][2], q2 = 0, q3 = 0, q4 = 0, AX = 0;
+  int n, x[1000][2], q1 = 0, q2 = 0, q3 = 0, q4 = 0, AX = 0;
   scanf("%d", &n);
   for (int i = 0; i < n; i++)
   {
