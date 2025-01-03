@@ -1,12 +1,10 @@
-N = int(input())
-RGB = [list(map(int, input().split())) for _ in range(N)]
-dp = [[0]*3 for _ in range(N)]
+n = int(input())
+days = list(map(int, input().split()))
 
-dp[0][0], dp[0][1], dp[0][2] = RGB[0]
+days.sort(reverse=True) # 오래 걸리는것 먼저 심어야 효율적이겠지?
+max_days = 0
 
-for i in range(1, N):
-    dp[i][0] = RGB[i][0] + min(dp[i-1][1], dp[i-1][2])
-    dp[i][1] = RGB[i][1] + min(dp[i-1][0], dp[i-1][2])
-    dp[i][2] = RGB[i][2] + min(dp[i-1][0], dp[i-1][1])
+for i in range(n):
+    max_days = max(max_days, i + 1 + days[i])
 
-print(min(dp[N-1][0], dp[N-1][1], dp[N-1][2]))
+print(max_days + 1) # 다 자라고 이장님 초대해야 하니 1 더해줘야지지
