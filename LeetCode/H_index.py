@@ -5,7 +5,8 @@ class Solution(object):
         
         h = 0
         for i in range(len(citations)):
-            if citations[i] >= i + 1:
+            if citations[i] >= i + 1: # i+1 ;  현재 확인한 논문 수
+            # 현재까지 확인한 논문의 개수보다 인용 횟수가 크거나 같은가
                 h = i + 1
             else:
                 break
