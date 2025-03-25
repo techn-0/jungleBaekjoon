@@ -1,10 +1,20 @@
-n = int(input())
-days = list(map(int, input().split()))
+def solution(N, stages):
+    answer = []
+    fails ={}
+    totalPlayers = len(stages)
 
-days.sort(reverse=True) # 오래 걸리는것 먼저 심어야 효율적이겠지?
-max_days = 0
+    for i in range(1, N + 1):
+        failPlayer = stages.count(i)
 
-for i in range(n):
-    max_days = max(max_days, i + 1 + days[i])
+        if failPlayer > 0:
+            failPer = failPlayer / totalPlayers
+        else:
+            failPer = 0
 
-print(max_days + 1) # 다 자라고 이장님 초대해야 하니 1 더해줘야지지
+        fails[i] = failPer
+
+        totalPlayers -= failPlayer
+    
+    answer = sorted(fails, key=lambda x: (-fails[x], x))
+
+    return answer
