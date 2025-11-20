@@ -1,11 +1,11 @@
-n = int(input())
-if n >= 90:
+score = int(input())
+if score >= 90:
     print("A")
-elif n >= 80:
+elif score >= 80:
     print("B")
-elif n >= 70:
+elif score >= 70:
     print("C")
-elif n >= 60:
+elif score >= 60:
     print("D")
 else:
     print("F")
