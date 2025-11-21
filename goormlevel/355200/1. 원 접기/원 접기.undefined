@@ -1,0 +1,18 @@
+import math
+
+am, cm, bm  = map(int, input().split())
+a = am * bm
+b = cm
+
+n = math.gcd(a, b)
+
+
+a = int(a/n)
+b = int(b/n)
+
+
+print(a, b)
+
+
+# am*bm = cm*dm
+# dm = (am*bm)/cm
