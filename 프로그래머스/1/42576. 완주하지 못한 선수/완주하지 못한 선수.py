@@ -1,22 +1,19 @@
 def solution(participant, completion):
     answer = ''
     
-    count = {}
-    for p in participant:
-        if p not in count:
-            count[p] = 1
-        else: count[p] += 1
+    cnt = {}
     
-    for c in completion:
-        count[c] -= 1
+    for i in participant:
+        if i in cnt:
+            cnt[i] += 1
+        else:
+            cnt[i] = 1
+    for i in completion:
+        cnt[i] -= 1
     
-    for name, cnt in count.items():
-        if cnt != 0:
-            return name
-            
-    
-    
-
+    for k, v in cnt.items():
+        if v != 0:
+            return k
     return answer
 
 # participant: 참여선수 이름
