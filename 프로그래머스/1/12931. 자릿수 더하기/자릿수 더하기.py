@@ -9,6 +9,6 @@ def solution(n):
 #     두 글자 이상일 땐 나누는 수에 10 씩 곱해가며 자리수 별 숫자 찾기
     for i in range(1, l+1):
         num = 10**i
-        tmp = int((n % num)/10**(i-1))
+        tmp = (n % num)//10**(i-1)
         answer += tmp
     return answer
