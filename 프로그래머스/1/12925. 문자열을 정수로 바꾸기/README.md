@@ -1,10 +1,10 @@
 # [level 1] 문자열을 정수로 바꾸기 - 12925 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12925) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12925?language=csharp) 
 
 ### 성능 요약
 
-메모리: 9.41 MB, 시간: 0.03 ms
+메모리: 31.3 MB, 시간: 0.47 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 12월 27일 17:34:41
+2026년 05월 13일 21:06:03
 
 ### 문제 설명
 
