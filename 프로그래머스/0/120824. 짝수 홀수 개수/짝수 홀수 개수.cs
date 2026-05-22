@@ -1,0 +1,17 @@
+using System;
+
+public class Solution {
+    public int[] solution(int[] num_list) {
+        int[] answer = new int[2];
+        int even = 0, odd = 0;
+        
+        foreach(int i in num_list)
+        {
+            if (i % 2 == 0)   even++;
+            else    odd++;
+        }
+        answer[0] = even;
+        answer[1] = odd;
+        return answer;
+    }
+}
