@@ -1,19 +1,19 @@
 public class Solution {
     public string solution(string s) {
-        char[] word = s.ToCharArray();
+        char[] words = s.ToCharArray();
         int cnt = 0;
         
-        for(int i = 0; i < word.Length;i++)
+        for(int i = 0; i < words.Length; i++)
         {
-            if(word[i] == ' ')   cnt = 0;
-            
+            if(words[i] == ' ' ) cnt = 0;
             else
             {
-                if(cnt%2 == 0)  word[i] = char.ToUpper(word[i]);
-                else    word[i] = char.ToLower(word[i]);
+                if (cnt % 2 == 0)   words[i] = char.ToUpper(words[i]);
+                else    words[i] = char.ToLower(words[i]);
                 cnt++;
             }
         }
-        return new string(word);
+        
+        return new string(words);
     }
 }

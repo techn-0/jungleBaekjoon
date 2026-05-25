@@ -1,10 +1,10 @@
 # [level 1] 이상한 문자 만들기 - 12930 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12930?itm_content=course14743&gad_source=1&gad_campaignid=23037984604&gbraid=0AAAAAC_c4nBi_mXMGsg-C2JqmVNJ_ECdu&gclid=Cj0KCQjww8rQBhDjARIsAE43KPNcFU8pEeztPQJPoNuy0Ukw3GPSbB4codKvYvRRK49lizgYQ6d6nK8aAkNtEALw_wcB) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12930?itm_content=course14743&gad_source=1&gad_campaignid=22356298761&gbraid=0AAAAAC_c4nDEwJptkTYdQcy_EUFIKcgcD&gclid=Cj0KCQjww8rQBhDjARIsAE43KPPCEfOgZqupfBQqkpXc71nRzQmMKTCLbwXxRWazyc9mJtZrCdUCl44aAo1yEALw_wcB) 
 
 ### 성능 요약
 
-메모리: 30.6 MB, 시간: 0.63 ms
+메모리: 30.9 MB, 시간: 0.70 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 05월 24일 22:40:16
+2026년 05월 25일 14:00:59
 
 ### 문제 설명
 
