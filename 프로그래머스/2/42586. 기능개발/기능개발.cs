@@ -5,31 +5,28 @@ using System.Linq;
 
 public class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = new int[] {};
+        List<int> answer = new List<int> {};
         
         int n = progresses.Length;
-        // Console.Write(n);
+        int[] days = new int[n];
         
-        int start = 0;
-        while(start < n){
-            while(progresses[start]<100){
-                for(int i = 0; i<n; i++){
-                    progresses[i] += speeds[i];
-                }
-                
-            }// 맨 앞 100퍼 이상 완료
-            start++;
-            // 다음것들도 100 이상인지 확인
-            int cnt = 1;
-            for(int j = start; j < n; j++){
-                if(progresses[j] >= 100){
-                    cnt++;
-                    start++;
-                }
-                else   break;
-            }
-            answer = answer.Append(cnt).ToArray();
+        for(int i = 0; i < n; i++){
+            days[i] = (int)Math.Ceiling((100.0-progresses[i]) / speeds[i]);
+            Console.WriteLine(days[i]);
         }
-        return answer;
+        int day = days[0];
+        int cnt = 1;
+        for(int j = 1; j < n; j++){
+            if(day >= days[j]){
+                cnt++;
+            }
+            else{
+                answer.Add(cnt);
+                day = days[j];
+                cnt = 1;
+            }
+        }
+        answer.Add(cnt);
+        return answer.ToArray();
     }
 }
