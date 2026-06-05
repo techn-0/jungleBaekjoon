@@ -4,26 +4,20 @@ using System.Collections.Generic;
 public class Solution {
     public int[] solution(int[] array, int[,] commands) {
         int n = commands.GetLength(0);
+        // Console.WriteLine(n);
         int[] answer = new int[n];
         
-        for(int i = 0; i < n; i ++){
-            int str = commands[i, 0];
-            int end = commands[i, 1];
-            int num = commands[i, 2];
+        for(int i=0; i<n; i++){
+            int start = commands[i, 0] - 1;
+            int end = commands[i, 1] - 1;
+            int target = commands[i, 2] -1;
+            int len = end - start + 1;
+            int[] arr = new int[len];
             
-            if(end == str){
-                answer[i] = array[str-1];
-            }
+            Array.Copy(array, start, arr, 0, len);
+            Array.Sort(arr);
+            answer[i] = arr[target];
             
-            int[] newArr = new int[end - str + 1];
-            int k = 0;
-            
-            for(int j = str-1; j<=end-1; j++){
-                newArr[k] = array[j];
-                k++;
-            }
-            Array.Sort(newArr);
-            answer[i] = newArr[num-1];
         }
         
         return answer;
