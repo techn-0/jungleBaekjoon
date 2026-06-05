@@ -2,24 +2,25 @@ using System;
 
 public class Solution {
     public int solution(int n, int[,] computers) {
-        
-        bool[] visited = new bool[n];
         int cnt = 0;
+        bool[] visited = new bool[n];
         
-        for(int i=0; i < n; i++){
+        for(int i=0; i<n; i++){
             if(!visited[i]){
-                DFS(i, computers, visited, n);
+                DFS(i, n, computers, visited);
                 cnt++;
             }
+            
         }
+        
         return cnt;
     }
-    void DFS(int node, int[,] computers, bool[] visited, int n){
+    void DFS(int node, int n, int[,] computers, bool[] visited){
         visited[node] = true;
-        for(int next = 0; next < n; next++){
-            if(!visited[next] && computers[node, next] == 1){
-                DFS(next, computers, visited, n);
-            }
+        for(int i = 0; i<n; i++){
+            if(!visited[i] && computers[node, i] == 1){
+                DFS(i, n, computers, visited);
         }
     }
+}
 }
